@@ -49,6 +49,12 @@ context master {
     //    LANGUAGE:String(2);	
     //    TEXT: String(256);        
     // }
+        // entity prodtext {
+    //    key NODE_KEY: common.Guid;
+    //    PARENT_KEY: common.Guid;
+    //    LANGUAGE:String(2);	
+    //    TEXT: String(256);        
+    // }
     entity product {
         key NODE_KEY: common.Guid;
         PRODUCT_ID: String(28);
