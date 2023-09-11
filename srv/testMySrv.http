@@ -1,0 +1,53 @@
+###Test get of service end points for v4 and v2
+http://localhost:4004/CatalogService/BPSet
+###
+http://localhost:4004/v2/CatalogService/BPSet
+
+###Read Purchase Orders
+http://localhost:4004/CatalogService/POs?$top=2&$expand=Items,PARTNER_GUID
+###Create New Employee
+POST http://localhost:4004/CatalogService/EmployeeSet
+Content-Type: application/json
+
+{
+    "nameFirst" : "Mohan123",
+    "nameMiddle" : null,	
+    "nameLast": "Reddy",	
+    "nameInitials":"B", 	
+    "sex": "M", 
+    "language":"E", 
+    "phoneNumber":"+91 (123) 654-0545", 
+    "email":"mohan720reddy@gmail.com" ,
+    "loginName":"mohan", 	
+    "accountNumber": "751111321123112", 	
+    "bankName": "HDFC BANK"
+}
+
+###get single employee
+http://localhost:4004/CatalogService/EmployeeSet/9ed6d6e2-d71e-47e8-a315-b0642860ed74
+
+### Update the salary
+PATCH http://localhost:4004/CatalogService/EmployeeSet/af6099d1-9906-4e3c-8a47-58c7c9766fed
+Content-Type: application/json
+
+{
+    "salaryAmount": "125.96",
+    "Currency_code": "INR"
+}
+
+###Read Single PO - Old syntax works as its not UUID type
+http://localhost:4004/CatalogService/POs('02BD2137-0890-1EEA-A6C2-BB55C1979002')
+
+###Create New PO
+POST  http://localhost:4004/CatalogService/POs
+Content-Type: application/json;IEEE754Compatible=true
+
+{
+   "GROSS_AMOUNT" : "654654.23",
+   "NET_AMOUNT"   : "2321.36",
+   "TAX_AMOUNT"   : "362.98",
+   "PO_ID"        : 30004548,
+   "LIFECYCLE_STATUS": "N",
+   "OVERALL_STATUS"  : "P",
+   "PARTNER_GUID_NODE_KEY" : "74867AD200E41EDBA5D8B06885AB4052"
+}
